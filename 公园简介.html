@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>水南成功公园简介</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei",sans-serif;background:#f6f1e8;color:#333;padding:12px}
+.container{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:1px solid #e9e0d1}
+h1{text-align:center;color:#8c5a3b;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #f0e4d2}
+p{margin-bottom:16px;text-indent:2em;line-height:1.8;font-size:16px}
+.carousel{width:100%;height:210px;border-radius:12px;overflow:hidden;margin:22px 0;position:relative}
+.carousel img{width:100%;height:100%;object-fit:cover;position:absolute;animation:carousel 16s infinite}
+@keyframes carousel{
+0%{opacity:1}20%{opacity:1}25%{opacity:0}95%{opacity:0}100%{opacity:1}
+}
+.carousel img:nth-child(1){animation-delay:0s}
+.carousel img:nth-child(2){animation-delay:4s}
+.carousel img:nth-child(3){animation-delay:8s}
+.carousel img:nth-child(4){animation-delay:12s}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>水南成功公园简介</h1>
+
+<div id="readText">
+<p>水南成功公园位于水南街道江岭社区辖区内，于2024年4月开工，8月完工，总投资约200万元，资金来源为中央专项彩票公益金。</p>
+<p>公园占地面积约3000平方米，建设内容包括绿化景观提升、亮化照明、黄裳雕像、壁画雕刻、石碑、状元井、三魁廊等。</p>
+<p>此外对原废旧的板岸进行改造利用，新刻水南赋、二十八星宿图、福佑水南印、魁星点斗图、北斗七星图于板岸上。</p>
+<p>还对江南C组团对面约60米人行步道拓宽并增设路灯，在C组团大门口增设公交候车亭，对通往剑津中学的人行步道翻新修复约220米。</p>
+<p>市、区两级高度重视民生事业发展，多方争取项目资金，结合城市体检、微心愿征集，解决群众急难愁盼，同时结合吃茶话事，广泛征求群众建议，切实将关键小事办成暖心实事。</p>
+<p>水南成功公园原是堆放建筑垃圾的闲置地，通过领导点题+群众建议+干部答题，从城市边角料变为装起百姓微幸福的口袋公园，为江岭社区、江南社区居民、师生提供休闲娱乐、运动健身的新去处。</p>
+<p>公园引用延平王郑成功之名，取名成功公园，在传承弘扬优秀传统文化的同时，寓意周边莘莘学子金榜题名、一朝成功。</p>
+</div>
+
+<div class="carousel">
+<img src="https://picsum.photos/id/108/800/450" alt="公园实景">
+<img src="https://picsum.photos/id/150/800/450" alt="公园实景">
+<img src="https://picsum.photos/id/160/800/450" alt="公园实景">
+<img src="https://picsum.photos/id/170/800/450" alt="公园实景">
+</div>
+</div>
+
+<script>
+// 温柔女声 自动朗读（内置，无外部音频，永不失效）
+document.addEventListener('DOMContentLoaded', function(){
+  const content = document.getElementById('readText').innerText;
+  const synth = window.speechSynthesis;
+  
+  function start(){
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(content);
+    u.lang = 'zh-CN';
+    u.rate = 0.95;
+    u.pitch = 1.0;
+    
+    const voices = synth.getVoices();
+    const female = voices.find(v=>v.name.includes('Female')||v.name.includes('Xiaoxiao')||v.name.includes('Samantha')||v.name.includes('Tingting'));
+    if(female) u.voice = female;
+    
+    synth.speak(u);
+  }
+
+  if(synth.getVoices().length>0) start();
+  else synth.onvoiceschanged = start;
+
+  document.addEventListener('touchstart', start, {once:true});
+  setTimeout(start, 800);
+});
+</script>
+</body>
+</html>
