@@ -15,7 +15,7 @@ body{
   overflow: hidden;
 }
 
-/* 标题固定容器 - 顶部悬浮 */
+/* 标题固定顶部 */
 .header-fixed{
   position: fixed;
   top: 0;
@@ -34,7 +34,7 @@ body{
   font-weight: bold;
 }
 
-/* 正文滚动容器 - 全屏可用 */
+/* 正文可滚动 */
 .content-scroll{
   position: fixed;
   top: 60px;
@@ -52,7 +52,7 @@ body{
   font-size: 16px;
 }
 
-/* 音频控件（隐藏，自动播放） */
+/* 音频隐藏 */
 .audio-player{
   display: none;
 }
@@ -60,34 +60,38 @@ body{
 </head>
 <body>
 
-<!-- 音频控件（替换为新的风雪千山音频地址） -->
-<audio class="audio-player" id="audio" controls autoplay loop>
+<!-- 音频：风雪千山 -->
+<audio class="audio-player" id="audio" autoplay loop>
   <source src="https://hyb-666.github.io/park-intro/风雪千山.MP3" type="audio/mpeg">
-  你的浏览器不支持音频播放
+  您的浏览器不支持音频播放
+</audio>
 
-
-<!-- 固定标题：风雪千山 -->
+<!-- 固定标题 -->
 <div class="header-fixed">
   <h1>风雪千山</h1>
 </div>
 
 <!-- 正文内容 -->
-<div class="content-scroll" id="readText">
+<div class="content-scroll">
 <p>“风雪千山”四字取自元朝张可久的殿前欢·客中，大家耳熟能详的“半纸功名”亦是来自该词曲。</p>
 <p>它传达了一种深刻的人生哲理，即为了实现个人的抱负和理想，人们往往需要历经千辛万苦，克服重重困难，甚至要面对生活的风霜雨雪。</p>
 <p>这种表达不仅是对追求者坚韧不拔精神的赞美，也是对那些为了理想而不懈努力的人们的鼓励。</p>
 </div>
 
 <script>
-// 音频自动播放适配
+// 音频自动播放（修复版）
 window.onload = function() {
   const audio = document.getElementById('audio');
-  document.addEventListener('touchstart', () => {
-    audio.play().catch(err => console.log('播放音频:', err));
-  }, { once: true });
-  setTimeout(() => {
-    audio.play().catch(err => console.log('自动播放:', err));
-  }, 500);
+  
+  // 触摸屏幕即播放（兼容所有手机）
+  document.addEventListener('touchstart', function(){
+    audio.play().catch(e=>{});
+  }, { once:true });
+
+  // 延迟自动播放
+  setTimeout(()=>{
+    audio.play().catch(e=>{});
+  },600);
 };
 </script>
 </body>
