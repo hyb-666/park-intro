@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>魁星向斗</title>
+<style>
+/* 全局重置 */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Microsoft YaHei",sans-serif;
+  background:#f6f1e8;
+  color:#333;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 标题固定容器 - 顶部悬浮 */
+.header-fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 12px 15px;
+  border-bottom: 2px solid #f0e4d2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 999;
+}
+.header-fixed h1{
+  text-align:center;
+  color:#8c5a3b;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 正文滚动容器 - 全屏可用 */
+.content-scroll{
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.content-scroll p{
+  margin-bottom: 16px;
+  text-indent: 2em;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* 音频控件（隐藏，自动播放） */
+.audio-player{
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- 音频：魁星向斗 -->
+<audio class="audio-player" id="audio" controls autoplay loop>
+  <source src="https://hyb-666.github.io/park-intro/魁星向斗.MP3" type="audio/mpeg">
+  你的浏览器不支持音频播放
+</audio>
+
+<!-- 固定标题：魁星向斗 -->
+<div class="header-fixed">
+  <h1>魁星向斗</h1>
+</div>
+
+<!-- 正文内容 -->
+<div class="content-scroll" id="readText">
+<p>“魁星向斗”亦可称“魁星点斗”、“魁星踢斗”，魁星是道教信仰和民俗传说中除文昌帝君之外另一位主宰文运的神明，为我国古代天文学中二十八宿之一，也称“奎星”。</p>
+<p>最早在东汉纬书《孝经援神契》中便有“奎主文章”一说，历来被文人墨客们视为主管文章兴衰、官运起伏的神明，可谓是当年的科举考试之神。</p>
+<p>每年农历七月七日魁星诞辰时，文人墨客们都会去各地魁星楼、魁星阁等庙观礼拜魁星，以祈求魁星保佑科举顺利，功名有加。因此，七夕夜礼拜魁星是古人尤为看中的道教信仰与民间习俗之一。</p>
+<p>民间工匠雕造或绘画魁星神像时，望文生义便塑造成面目狰狞的模样，往往单足立于鳌头之上，寓意独占鳌头，一手执笔，一手捧印或墨斗。</p>
+</div>
+
+<script>
+// 音频自动播放适配
+window.onload = function() {
+  const audio = document.getElementById('audio');
+  document.addEventListener('touchstart', () => {
+    audio.play().catch(err => console.log('播放音频:', err));
+  }, { once: true });
+  setTimeout(() => {
+    audio.play().catch(err => console.log('自动播放:', err));
+  }, 500);
+};
+</script>
+</body>
+</html>
