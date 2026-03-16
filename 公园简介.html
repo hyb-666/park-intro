@@ -1,31 +1,22 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+
+ 
+<头>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>水南成功公园简介</title>
-<style>
+<样式>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Microsoft YaHei",sans-serif;background:#f6f1e8;color:#333;padding:12px}
-.container{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:1px solid #e9e0d1}
-h1{text-align:center;color:#8c5a3b;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #f0e4d2}
-p{margin-bottom:16px;text-indent:2em;line-height:1.8;font-size:16px}
-.carousel{width:100%;height:210px;border-radius:12px;overflow:hidden;margin:22px 0;position:relative}
-.carousel img{width:100%;height:100%;object-fit:cover;position:absolute;animation:carousel 16s infinite}
-@keyframes carousel{
-0%{opacity:1}20%{opacity:1}25%{opacity:0}95%{opacity:0}100%{opacity:1}
-}
-.carousel img:nth-child(1){animation-delay:0s}
-.carousel img:nth-child(2){animation-delay:4s}
-.carousel img:nth-child(3){animation-delay:8s}
-.carousel img:nth-child(4){animation-delay:12s}
-</style>
-</head>
-<body>
-<div class="container">
+body{font-family:"微软 YaHei",sans-serif;background:#f6f1e8;color:#333;padding:12px}
+.容器{背景:#fff;边框半径:16px;内边距:24px;盒阴影:0 4px 16px rgba(0,0,0,0.06);边框:1px 实线 #e9e0d1}
+ 
+
+</样式>
+</头>
+<身体>
+<div 类="容器">
 <h1>水南成功公园简介</h1>
 
-<div id="readText">
+<div id="读取文本">
 <p>水南成功公园位于水南街道江岭社区辖区内，于2024年4月开工，8月完工，总投资约200万元，资金来源为中央专项彩票公益金。</p>
 <p>公园占地面积约3000平方米，建设内容包括绿化景观提升、亮化照明、黄裳雕像、壁画雕刻、石碑、状元井、三魁廊等。</p>
 <p>此外对原废旧的板岸进行改造利用，新刻水南赋、二十八星宿图、福佑水南印、魁星点斗图、北斗七星图于板岸上。</p>
@@ -35,40 +26,33 @@ p{margin-bottom:16px;text-indent:2em;line-height:1.8;font-size:16px}
 <p>公园引用延平王郑成功之名，取名成功公园，在传承弘扬优秀传统文化的同时，寓意周边莘莘学子金榜题名、一朝成功。</p>
 </div>
 
-<div class="carousel">
-<img src="https://picsum.photos/id/108/800/450" alt="公园实景">
-<img src="https://picsum.photos/id/150/800/450" alt="公园实景">
-<img src="https://picsum.photos/id/160/800/450" alt="公园实景">
-<img src="https://picsum.photos/id/170/800/450" alt="公园实景">
-</div>
 </div>
 
-<script>
-// 温柔女声 自动朗读（内置，无外部音频，永不失效）
-document.addEventListener('DOMContentLoaded', function(){
-  const content = document.getElementById('readText').innerText;
-  const synth = window.speechSynthesis;
+<脚本>
+文档.添加事件监听器('DOMContentLoaded', 函数(){
+  常量 内容 = 文档.通过ID获取元素('读取文本').内文;
+  常量 合成 = 窗口.语音合成;
   
-  function start(){
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(content);
+  函数 开始(){
+    合成.取消();
+    常量 u = 创建 语音合成语句(内容);
     u.lang = 'zh-CN';
     u.rate = 0.95;
-    u.pitch = 1.0;
+    u.间距 = 1.0;
     
-    const voices = synth.getVoices();
+    常量 声音 = 合成器.获取声音();
     const female = voices.find(v=>v.name.includes('Female')||v.name.includes('Xiaoxiao')||v.name.includes('Samantha')||v.name.includes('Tingting'));
     if(female) u.voice = female;
     
-    synth.speak(u);
+    合成.讲话(你);
   }
 
-  if(synth.getVoices().length>0) start();
-  else synth.onvoiceschanged = start;
+  如果(合成器.获取声音().长度>0) 开始();
+  否则 合成.当语音更改时 = 开始;
 
-  document.addEventListener('touchstart', start, {once:true});
-  setTimeout(start, 800);
+  文档.添加事件监听器('触摸开始', 开始, {一次:true});
+  setTimeout(开始, 800);
 });
-</script>
-</body>
-</html>
+</脚本>
+</身体>
+  </html>
